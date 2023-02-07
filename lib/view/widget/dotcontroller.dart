@@ -2,7 +2,6 @@ import 'package:blooddonation/controller/onboarding_controller.dart';
 import 'package:blooddonation/data/static/static.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-
 import '../../core/constant/color.dart';
 
 class DotControllerOnboarding extends StatelessWidget {

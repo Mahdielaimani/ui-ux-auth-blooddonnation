@@ -1,9 +1,6 @@
 import 'package:blooddonation/controller/onboarding_controller.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/state_manager.dart';
-
-import '../../core/constant/color.dart';
 import '../../data/static/static.dart';
 
 class CustomSliderOnboarding extends GetView<OnbordingControllerIm> {
@@ -23,18 +20,19 @@ class CustomSliderOnboarding extends GetView<OnbordingControllerIm> {
               children: [
                 const SizedBox(height: 30),
                 Text(onBordingLists[i].titel!,
+                    textAlign: TextAlign.center,
                     style: const TextStyle(
-                      fontSize: 30,
+                      height: 2,
+                      fontSize: 35,
                     )),
                 const SizedBox(height: 20),
                 Container(
-                  width: 250,
-                  height: 300,
                   child: Image.asset(
                     onBordingLists[i].image!,
+                    height: 200,
                   ),
                 ),
-                const SizedBox(height: 70),
+                const SizedBox(height: 60),
                 Container(
                     width: double.infinity,
                     alignment: Alignment.center,

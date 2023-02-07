@@ -1,5 +1,4 @@
 import 'package:blooddonation/data/static/static.dart';
-import 'package:blooddonation/view/screen/auth/loginpage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 

@@ -1,10 +1,6 @@
 import 'package:blooddonation/controller/onboarding_controller.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-
-import '../../core/constant/color.dart';
 
 class CustomBottonOnboarding extends StatelessWidget {
   @override
@@ -14,8 +10,9 @@ class CustomBottonOnboarding extends StatelessWidget {
       margin: EdgeInsets.all(50),
       height: 40,
       child: MaterialButton(
-        padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 0),
-        color: AppColor.buttonColor,
+        padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 0),
+        color: Colors.blue,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         onPressed: () {
           pageController.next();
         },

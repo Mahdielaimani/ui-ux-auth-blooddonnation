@@ -1,25 +1,106 @@
-import 'package:blooddonation/controller/onboarding_controller.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:blooddonation/view/widget/textsignup.dart';
 import 'package:flutter/material.dart';
+import 'package:blooddonation/data/static/static.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+import '../../../controller/logincontroller.dart';
+import '../../../core/constant/color.dart';
+import '../../widget/custombottonauth.dart';
+import '../../widget/customformauth.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class Login extends StatelessWidget {
+  LoginControllerIm controller = Get.put(LoginControllerIm());
 
   @override
   Widget build(BuildContext context) {
-    OnbordingControllerIm pageController = Get.put(OnbordingControllerIm());
     return Scaffold(
-        drawer: Drawer(),
-        appBar: AppBar(),
-        body: Container(
-          child: Text("Welcom",
-              style: const TextStyle(
-                  height: 2,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 30,
-                  color: Colors.blue)),
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          elevation: 0.0,
+          title: Text(
+            "Sign In",
+            style: TextStyle(
+              color: AppColor.textColor,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          centerTitle: true,
+        ),
+        body: ListView.builder(
+          scrollDirection: Axis.vertical,
+          shrinkWrap: true,
+          itemCount: loginLists.length,
+          itemBuilder: ((context, index) => Column(
+                children: [
+                  Container(
+                      padding: EdgeInsets.fromLTRB(0, 20, 0, 5),
+                      child: Image.asset(
+                        loginLists[index].image!,
+                        height: 200,
+                      )),
+                  Container(
+                      padding: EdgeInsets.only(bottom: 10),
+                      child: Text(loginLists[index].text!,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                          ))),
+                  Container(
+                      padding: EdgeInsets.only(bottom: 30),
+                      child: Text(loginLists[index].body!,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            height: 2,
+                            color: AppColor.textColor,
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                          ))),
+                  CustomFormAuth(
+                    obscuretext: false,
+                    hinttext: 'enter your email',
+                    labeltext: 'email',
+                    icondata: Icons.email,
+                    mycontroller: controller.email,
+                  ),
+                  SizedBox(
+                    height: 2,
+                  ),
+                  CustomFormAuth(
+                    obscuretext: true,
+                    hinttext: 'enter your password',
+                    labeltext: 'Password',
+                    icondata: Icons.lock,
+                    mycontroller: controller.password,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      controller.goToForgetPassword();
+                    },
+                    child: Text(
+                      "Forget password",
+                      textAlign: TextAlign.left,
+                      style: TextStyle(color: Colors.blue),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  CustomBottonAuth(
+                    onTap: () {},
+                    textbutton: 'Sign In',
+                  ),
+                  SizedBox(height: 30),
+                  TextSignUp(
+                    textone: 'Dont have account ? ',
+                    texttwo: 'Sign Up',
+                    onTap: () {
+                      controller.gotToSigup();
+                    },
+                  ),
+                ],
+              )),
         ));
   }
 }

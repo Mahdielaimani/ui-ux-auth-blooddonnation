@@ -1,5 +1,5 @@
 import 'package:blooddonation/routes.dart';
-import 'package:blooddonation/view/screen/onboardingone.dart';
+import 'package:blooddonation/view/screen/onboarding.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
